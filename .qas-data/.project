@@ -1,0 +1,20 @@
+{
+    "additionalFields": {
+        "mobileweb": {
+            "baseurl": "https://www.gmail.com"
+        },
+        "web": {
+            "baseurl": "https://www.gmail.com"
+        }
+    },
+    "framework": "cucumber",
+    "language": "typescript",
+    "projectSettings": {
+        "projectName": "Typescript_Cucumber",
+        "projectPath": "c:\\Users\\rinkesh.jain\\Desktop\\Sample"
+    },
+    "projectTypes": [
+        "web",
+        "mobileweb"
+    ]
+}

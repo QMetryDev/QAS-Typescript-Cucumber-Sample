@@ -1,0 +1,7 @@
+
+username.input={"locator":"xpath=//input[@formcontrolname='username']","description":"username field"}
+password.input={"locator":"xpath=//input[@type='password']","description":"password field"}
+login.form={"locator":"xpath=//form","description":"login form"}
+credit.input={"locator":"xpath=.//*[text()='Credit']//preceding::input[1]","description":"credit input"}
+credit.button={"locator":"xpath=//button[contains(.,'Credit')]","description":"credit button"}
+checkbalence.button={"locator":"xpath=//button[contains(.,'Check')]","description":"Check my balance"}

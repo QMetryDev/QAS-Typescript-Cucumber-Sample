@@ -1,0 +1,52 @@
+{
+  "name": "protractor-typescript-cucumber",
+  "version": "3.0.0",
+  "license": "MIT",
+  "keywords": [
+    "protractor",
+    "cucumber",
+    "typescript",
+    "angular",
+    "angularjs",
+    "testing",
+    "behaviour driven development",
+    "bdd",
+    "selenium",
+    "webdriverJS",
+    "gherkin",
+    "automation testing"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node_modules/.bin/webdriver-manager update",
+    "build": "tsc",
+    "test": "tsc -p . && protractor out/config/config.js || true",
+    "posttest": "npm run uploadresults",
+    "webdriver-update": "webdriver-manager update",
+    "webdriver-start": "webdriver-manager start",
+    "uploadresults": "node out/source/base/ResultsUploader.js"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/cucumber": "^4.0.4",
+    "@types/node": "^9.6.12",
+    "@types/selenium-webdriver": "^3.0.8",
+    "all-contributors-cli": "^5.2.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "cucumber": "^4.1.0",
+    "cucumber-html-reporter": "^4.0.2",
+    "mkdirp": "^0.5.1",
+    "protractor": "^5.4.2",
+    "protractor-cucumber-framework": "^6.1.1",
+    "rimraf": "^2.6.2",
+    "ts-node": "^6.0.0",
+    "typescript": "^2.8.1"
+  },
+  "repository": "https://github.com/igniteram/protractor-cucumber-typescript",
+  "dependencies": {
+    "hashmap": "^2.3.0",
+    "properties-reader": "0.0.16",
+    "zip-folder": "^1.0.0"
+  }
+}
