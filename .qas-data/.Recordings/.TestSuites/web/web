@@ -1,0 +1,521 @@
+{
+    "steps": [
+        {
+            "command": "Open",
+            "element": "",
+            "eArray": [],
+            "input": "https://www.gmail.com",
+            "status": "NotRun",
+            "elementKey": "",
+            "elementDesc": "",
+            "indexColumn": ""
+        },
+        {
+            "command": "Clear",
+            "element": "email.identifierid_1",
+            "eArray": [
+                [
+                    "id=identifierId",
+                    "id"
+                ],
+                [
+                    "name=identifier",
+                    "name"
+                ],
+                [
+                    "xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/span/div/div/div/div/div/input",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#identifierId",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Continue to Gmail'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot email?'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "email.identifierid",
+                    "key"
+                ],
+                [
+                    "email.identifierid_1",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "email.identifierid",
+            "elementDesc": "identifierId email",
+            "indexColumn": "",
+            "tcId": "8"
+        },
+        {
+            "command": "Type",
+            "element": "email.identifierid_1",
+            "eArray": [
+                [
+                    "id=identifierId",
+                    "id"
+                ],
+                [
+                    "name=identifier",
+                    "name"
+                ],
+                [
+                    "xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/span/div/div/div/div/div/input",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#identifierId",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Continue to Gmail'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot email?'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "email.identifierid",
+                    "key"
+                ],
+                [
+                    "email.identifierid_1",
+                    "key"
+                ]
+            ],
+            "input": "demoqas2019@gmail.com",
+            "status": "NotRun",
+            "elementKey": "email.identifierid",
+            "elementDesc": "identifierId email",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "div.div2111_1",
+            "eArray": [
+                [
+                    "xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/span/div[3]",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//span/div[3]",
+                    "xpath:position"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Continue to Gmail'])[1]/following::div[18]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::div[19]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "div.div2111",
+                    "key"
+                ],
+                [
+                    "div.div2111_1",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "div.div2111",
+            "elementDesc": "Text DIV2111",
+            "indexColumn": "",
+            "tcId": "8"
+        },
+        {
+            "command": "Verify Value",
+            "element": "email.identifierid_1",
+            "eArray": [
+                [
+                    "id=identifierId",
+                    "id"
+                ],
+                [
+                    "name=identifier",
+                    "name"
+                ],
+                [
+                    "xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/span/div/div/div/div/div/input",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#identifierId",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Continue to Gmail'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot email?'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "email.identifierid",
+                    "key"
+                ],
+                [
+                    "email.identifierid_1",
+                    "key"
+                ]
+            ],
+            "input": "demoqas2019@gmail.com",
+            "status": "NotRun",
+            "elementKey": "email.identifierid",
+            "elementDesc": "identifierId email",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "span.span1111_2",
+            "eArray": [
+                [
+                    "xpath=//div[@id='identifierNext']/span/span",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//span/span",
+                    "xpath:position"
+                ],
+                [
+                    "css=span.RveJvd.snByac",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Learn more'])[1]/following::span[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Create account'])[1]/preceding::span[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='‪Afrikaans‬'])[1]/preceding::span[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "span.span1111",
+                    "key"
+                ],
+                [
+                    "span.span1111_2",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "span.span1111",
+            "elementDesc": "Text SPAN1111",
+            "indexColumn": "",
+            "tcId": "8"
+        },
+        {
+            "command": "Clear",
+            "element": "password.qas2019_1",
+            "eArray": [
+                [
+                    "name=password",
+                    "name"
+                ],
+                [
+                    "xpath=//div[@id='password']/div/div/div/input",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//div/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=input[name=\"password\"]",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Too many failed attempts'])[1]/following::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Next'])[1]/preceding::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot password?'])[1]/preceding::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.qas2019",
+                    "key"
+                ],
+                [
+                    "password.qas2019_1",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "password.qas2019",
+            "elementDesc": "QAS@2019 password",
+            "indexColumn": "",
+            "tcId": "8"
+        },
+        {
+            "command": "Type",
+            "element": "password.qas2019_1",
+            "eArray": [
+                [
+                    "name=password",
+                    "name"
+                ],
+                [
+                    "xpath=//div[@id='password']/div/div/div/input",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//div/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=input[name=\"password\"]",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Too many failed attempts'])[1]/following::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Next'])[1]/preceding::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot password?'])[1]/preceding::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.qas2019",
+                    "key"
+                ],
+                [
+                    "password.qas2019_1",
+                    "key"
+                ]
+            ],
+            "input": "<Password>",
+            "status": "NotRun",
+            "elementKey": "password.qas2019",
+            "elementDesc": "QAS@2019 password",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "div.div111_1",
+            "eArray": [
+                [
+                    "xpath=//div[@id='view_container']/div/div/div[2]/div",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//div[2]/div/div/div[2]/div",
+                    "xpath:position"
+                ],
+                [
+                    "css=div.Wxwduf.Us7fWe.JhUD8d",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::div[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Welcome'])[1]/following::div[9]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "div.div111",
+                    "key"
+                ],
+                [
+                    "div.div111_1",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "div.div111",
+            "elementDesc": "Text DIV111",
+            "indexColumn": "",
+            "tcId": "8"
+        },
+        {
+            "command": "Verify Value",
+            "element": "password.qas2019_1",
+            "eArray": [
+                [
+                    "name=password",
+                    "name"
+                ],
+                [
+                    "xpath=//div[@id='password']/div/div/div/input",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//div/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=input[name=\"password\"]",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Too many failed attempts'])[1]/following::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Next'])[1]/preceding::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot password?'])[1]/preceding::input[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.qas2019",
+                    "key"
+                ],
+                [
+                    "password.qas2019_1",
+                    "key"
+                ]
+            ],
+            "input": "<Password>",
+            "status": "NotRun",
+            "elementKey": "password.qas2019",
+            "elementDesc": "QAS@2019 password",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "span.span1111_1_1",
+            "eArray": [
+                [
+                    "xpath=//div[@id='passwordNext']/span/span",
+                    "xpath:idRelative"
+                ],
+                [
+                    "xpath=//div/div/span/span",
+                    "xpath:position"
+                ],
+                [
+                    "css=span.RveJvd.snByac",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Too many failed attempts'])[1]/following::span[10]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::span[13]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot password?'])[1]/preceding::span[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='‪Afrikaans‬'])[1]/preceding::span[3]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "span.span1111_1",
+                    "key"
+                ],
+                [
+                    "span.span1111_1_1",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "span.span1111",
+            "elementDesc": "Text SPAN1111",
+            "indexColumn": "",
+            "tcId": "8"
+        }
+    ],
+    "type": "web",
+    "capabilities": {
+        "remoteUrl": "https://www.gmail.com",
+        "type": "web",
+        "selectDevice": "",
+        "isRemote": false,
+        "remoteHubUrl": "http://127.0.0.1:4444/wd/hub/",
+        "details": {
+            "deviceMetrics": {
+                "name": "",
+                "width": "",
+                "height": "",
+                "pixelRatio": "",
+                "userAgent": ""
+            }
+        },
+        "mode": "play",
+        "tcId": 1
+    },
+    "testDataExample": [
+        {
+            "Password": "test"
+        },
+        {
+            "Password": "qastest"
+        },
+        {
+            "Password": "QAS@2019"
+        }
+    ],
+    "executionStatus": "NotRun"
+}
