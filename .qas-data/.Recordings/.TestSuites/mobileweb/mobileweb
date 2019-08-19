@@ -12,7 +12,7 @@
         },
         {
             "command": "Clear",
-            "element": "email.identifierid_1",
+            "element": "email",
             "eArray": [
                 [
                     "id=identifierId",
@@ -47,11 +47,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "email.identifierid",
+                    "test",
                     "key"
                 ],
                 [
-                    "email.identifierid_1",
+                    "email",
                     "key"
                 ]
             ],
@@ -60,11 +60,11 @@
             "elementKey": "email.identifierid",
             "elementDesc": "identifierId email",
             "indexColumn": "",
-            "tcId": "12"
+            "tcId": "10"
         },
         {
             "command": "Type",
-            "element": "email.identifierid_1",
+            "element": "email",
             "eArray": [
                 [
                     "id=identifierId",
@@ -99,11 +99,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "email.identifierid",
+                    "test",
                     "key"
                 ],
                 [
-                    "email.identifierid_1",
+                    "email",
                     "key"
                 ]
             ],
@@ -115,43 +115,47 @@
         },
         {
             "command": "Click",
-            "element": "div.div2111_1",
+            "element": "text_1",
             "eArray": [
                 [
-                    "xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/span/div[3]",
+                    "xpath=//div[@id='view_container']/div/div/div[2]/div/div",
                     "xpath:idRelative"
                 ],
                 [
-                    "xpath=//span/div[3]",
+                    "xpath=//div[2]/div/div/div[2]/div/div",
                     "xpath:position"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Continue to Gmail'])[1]/following::div[18]",
+                    "css=div.WEQkZc",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Continue to Gmail'])[1]/following::div[3]",
                     "xpath:neighbor"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::div[19]",
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::div[4]",
                     "xpath:neighbor"
                 ],
                 [
-                    "div.div2111",
+                    "test1",
                     "key"
                 ],
                 [
-                    "div.div2111_1",
+                    "text_1",
                     "key"
                 ]
             ],
             "input": "",
             "status": "NotRun",
-            "elementKey": "div.div2111",
-            "elementDesc": "Text DIV2111",
+            "elementKey": "div.div111",
+            "elementDesc": "Text DIV111",
             "indexColumn": "",
-            "tcId": "12"
+            "tcId": "10"
         },
         {
             "command": "Verify Value",
-            "element": "email.identifierid_1",
+            "element": "email",
             "eArray": [
                 [
                     "id=identifierId",
@@ -186,11 +190,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "email.identifierid",
+                    "test",
                     "key"
                 ],
                 [
-                    "email.identifierid_1",
+                    "email",
                     "key"
                 ]
             ],
@@ -205,32 +209,24 @@
             "element": "span.span1111_2",
             "eArray": [
                 [
-                    "xpath=//div[@id='identifierNext']/span/span",
+                    "xpath=//div[@id='identifierNext']/span",
                     "xpath:idRelative"
                 ],
                 [
-                    "xpath=//span/span",
+                    "xpath=//div[2]/div/div/div/span",
                     "xpath:position"
                 ],
                 [
-                    "css=span.RveJvd.snByac",
+                    "css=span.CwaK9",
                     "css"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Learn more'])[1]/following::span[2]",
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Learn more'])[1]/following::span[1]",
                     "xpath:neighbor"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Create account'])[1]/preceding::span[1]",
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Create account'])[1]/preceding::span[2]",
                     "xpath:neighbor"
-                ],
-                [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='‪Afrikaans‬'])[1]/preceding::span[3]",
-                    "xpath:neighbor"
-                ],
-                [
-                    "span.span1111",
-                    "key"
                 ],
                 [
                     "span.span1111_2",
@@ -242,11 +238,11 @@
             "elementKey": "span.span1111",
             "elementDesc": "Text SPAN1111",
             "indexColumn": "",
-            "tcId": "12"
+            "tcId": "10"
         },
         {
             "command": "Clear",
-            "element": "password.qas2019_1",
+            "element": "password",
             "eArray": [
                 [
                     "name=password",
@@ -281,11 +277,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "password.qas2019",
+                    "test2",
                     "key"
                 ],
                 [
-                    "password.qas2019_1",
+                    "password",
                     "key"
                 ]
             ],
@@ -294,11 +290,11 @@
             "elementKey": "password.qas2019",
             "elementDesc": "QAS@2019 password",
             "indexColumn": "",
-            "tcId": "12"
+            "tcId": "10"
         },
         {
             "command": "Type",
-            "element": "password.qas2019_1",
+            "element": "password",
             "eArray": [
                 [
                     "name=password",
@@ -333,11 +329,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "password.qas2019",
+                    "test2",
                     "key"
                 ],
                 [
-                    "password.qas2019_1",
+                    "password",
                     "key"
                 ]
             ],
@@ -349,7 +345,7 @@
         },
         {
             "command": "Click",
-            "element": "div.div111_1",
+            "element": "text_2",
             "eArray": [
                 [
                     "xpath=//div[@id='view_container']/div/div/div[2]/div",
@@ -372,11 +368,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "div.div111",
+                    "test3",
                     "key"
                 ],
                 [
-                    "div.div111_1",
+                    "text_2",
                     "key"
                 ]
             ],
@@ -385,11 +381,11 @@
             "elementKey": "div.div111",
             "elementDesc": "Text DIV111",
             "indexColumn": "",
-            "tcId": "12"
+            "tcId": "10"
         },
         {
             "command": "Verify Value",
-            "element": "password.qas2019_1",
+            "element": "password",
             "eArray": [
                 [
                     "name=password",
@@ -424,11 +420,11 @@
                     "xpath:neighbor"
                 ],
                 [
-                    "password.qas2019",
+                    "test2",
                     "key"
                 ],
                 [
-                    "password.qas2019_1",
+                    "password",
                     "key"
                 ]
             ],
@@ -443,36 +439,28 @@
             "element": "span.span1111_1_1",
             "eArray": [
                 [
-                    "xpath=//div[@id='passwordNext']/span/span",
+                    "xpath=//div[@id='passwordNext']/span",
                     "xpath:idRelative"
                 ],
                 [
-                    "xpath=//div/div/span/span",
+                    "xpath=//div[2]/div/div/div/span",
                     "xpath:position"
                 ],
                 [
-                    "css=span.RveJvd.snByac",
+                    "css=span.CwaK9",
                     "css"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Too many failed attempts'])[1]/following::span[10]",
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Too many failed attempts'])[1]/following::span[9]",
                     "xpath:neighbor"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::span[13]",
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='demoqas2019@gmail.com'])[1]/following::span[12]",
                     "xpath:neighbor"
                 ],
                 [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot password?'])[1]/preceding::span[1]",
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Forgot password?'])[1]/preceding::span[2]",
                     "xpath:neighbor"
-                ],
-                [
-                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='‪Afrikaans‬'])[1]/preceding::span[3]",
-                    "xpath:neighbor"
-                ],
-                [
-                    "span.span1111_1",
-                    "key"
                 ],
                 [
                     "span.span1111_1_1",
@@ -484,7 +472,7 @@
             "elementKey": "span.span1111",
             "elementDesc": "Text SPAN1111",
             "indexColumn": "",
-            "tcId": "12"
+            "tcId": "10"
         }
     ],
     "type": "mobileweb",
@@ -517,5 +505,6 @@
             "Password": "QAS@2019"
         }
     ],
+    "isTCValid": true,
     "executionStatus": "NotRun"
 }
