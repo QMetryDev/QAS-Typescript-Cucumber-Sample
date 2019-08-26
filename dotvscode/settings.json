@@ -1,0 +1,14 @@
+{
+	"cucumberautocomplete.steps": [
+		"**/*.ts"
+	],
+	"cucumberautocomplete.syncfeatures": "scenarios/*.feature",
+	"cucumberautocomplete.strictGherkinCompletion": false,
+	"files.exclude": {
+		".git": true,
+		".build": true,
+		".qas-data": true,
+		".donotdelete": true,
+		"**/.DS_Store": true,
+	}
+}
