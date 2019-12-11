@@ -37,6 +37,8 @@ export const TEST_SUITE_NAME = integrationProperties.get('automation.qmetry.test
 export const TEST_CYCLE_TO_REUSE = integrationProperties.get('automation.qmetry.testCycleToReuse') !== null ? integrationProperties.get('automation.qmetry.testCycleToReuse') : '';
 export const ENVIRONMENT = integrationProperties.get('automation.qmetry.environment') !== null ? integrationProperties.get('automation.qmetry.environment') : '';
 export const BUILD = integrationProperties.get('automation.qmetry.build') !== null ? integrationProperties.get('automation.qmetry.build') : '';
+export const TEST_CASE_FIELDS = integrationProperties.get('automation.qmetry.testcaseFields') !== null ? integrationProperties.get('automation.qmetry.testcaseFields') : '';
+export const TEST_SUITE_FIELDS = integrationProperties.get('automation.qmetry.testsuiteFields') !== null ? integrationProperties.get('automation.qmetry.testsuiteFields') : '';
 
 
 
