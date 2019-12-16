@@ -46,7 +46,9 @@ import {
   TEST_CASE_PRIORITY,
   TEST_CASE_STATUS,
   TEST_CASE_SPRINTID,
-  TEST_CASE_FIXVERSIONID
+  TEST_CASE_FIXVERSIONID,
+	TEST_SUITE_FIELDS,
+	TEST_CASE_FIELDS
 
 } from "./utils";
 import { ConfigurationManager } from "./ConfigurationManager";
@@ -313,6 +315,15 @@ function nonRequiredRequestParam() {
   extraFieldMap["releaseID"] = REALEASE_ID;
   extraFieldMap["buildID"] = BUILD_ID;
   extraFieldMap["testsuiteName"] = TEST_SUITE_NAME;
+
+	extraFieldMap['testcase_fields'] = TEST_CASE_FIELDS;
+	extraFieldMap['testsuite_fields'] = TEST_SUITE_FIELDS;
+
+
+	extraFieldMap['testcase_fields'] = extraFieldMap['testcase_fields'].replace(/\"\[/g,'[').replace(/\]"/g,']');
+	extraFieldMap['testsuite_fields'] = extraFieldMap['testsuite_fields'].replace(/\"\[/g,'[').replace(/\]"/g,']');
+
+
 
 
 }
