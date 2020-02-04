@@ -1,0 +1,421 @@
+{
+    "steps": [
+        {
+            "command": "Open",
+            "element": "",
+            "eArray": [],
+            "input": "https://qas.qmetry.com/bank/",
+            "status": "NotRun",
+            "elementKey": "",
+            "elementDesc": "",
+            "indexColumn": ""
+        },
+        {
+            "command": "Clear",
+            "element": "text.txtusername",
+            "eArray": [
+                [
+                    "id=txtUsername",
+                    "id"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtUsername",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='QMetry Bank Login'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "text.txtusername",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "text.txtusername",
+            "elementDesc": "Input for txtUsername",
+            "indexColumn": "",
+            "tcId": "13"
+        },
+        {
+            "command": "Type",
+            "element": "text.txtusername",
+            "eArray": [
+                [
+                    "id=txtUsername",
+                    "id"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtUsername",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='QMetry Bank Login'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "text.txtusername",
+                    "key"
+                ]
+            ],
+            "input": "Bob",
+            "status": "NotRun",
+            "elementKey": "text.txtusername",
+            "elementDesc": "Input for txtUsername",
+            "indexColumn": ""
+        },
+        {
+            "command": "Clear",
+            "element": "password.txtpassword",
+            "eArray": [
+                [
+                    "id=txtPassword",
+                    "id"
+                ],
+                [
+                    "xpath=//div[2]/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtPassword",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.txtpassword",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "password.txtpassword",
+            "elementDesc": "txtPassword password",
+            "indexColumn": "",
+            "tcId": "13"
+        },
+        {
+            "command": "Type",
+            "element": "password.txtpassword",
+            "eArray": [
+                [
+                    "id=txtPassword",
+                    "id"
+                ],
+                [
+                    "xpath=//div[2]/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtPassword",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.txtpassword",
+                    "key"
+                ]
+            ],
+            "input": "Bob",
+            "status": "NotRun",
+            "elementKey": "password.txtpassword",
+            "elementDesc": "txtPassword password",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "button.btnlogin",
+            "eArray": [
+                [
+                    "id=btnLogin",
+                    "id"
+                ],
+                [
+                    "xpath=//button",
+                    "xpath:position"
+                ],
+                [
+                    "css=#btnLogin",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/following::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "button.btnlogin",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "button.btnlogin",
+            "elementDesc": "BUTTON btnLogin",
+            "indexColumn": "",
+            "tcId": "13"
+        },
+        {
+            "command": "Clear",
+            "element": "number.enteramountforcredit",
+            "eArray": [
+                [
+                    "xpath=//div[2]/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=input.form-control.ng-untouched.ng-valid.ng-dirty",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Debit'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='$ -1173176748'])[1]/following::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Credit'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Logged in successfully.'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "number.enteramountforcredit",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "number.enteramountforcredit",
+            "elementDesc": "Enter amount for credit number",
+            "indexColumn": "",
+            "tcId": "13"
+        },
+        {
+            "command": "Type",
+            "element": "number.enteramountforcredit",
+            "eArray": [
+                [
+                    "xpath=//div[2]/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=input.form-control.ng-untouched.ng-valid.ng-dirty",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Debit'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='$ -1173176748'])[1]/following::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Credit'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Logged in successfully.'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "number.enteramountforcredit",
+                    "key"
+                ]
+            ],
+            "input": "1000",
+            "status": "NotRun",
+            "elementKey": "number.enteramountforcredit",
+            "elementDesc": "Enter amount for credit number",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "button.button11",
+            "eArray": [
+                [
+                    "xpath=//div[2]/span/button",
+                    "xpath:position"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Debit'])[1]/following::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='$ -1173176748'])[1]/following::button[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Logged in successfully.'])[1]/preceding::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "button.button11",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "button.button11",
+            "elementDesc": "BUTTON BUTTON11",
+            "indexColumn": "",
+            "tcId": "13"
+        },
+        {
+            "command": "Verify Present",
+            "element": "strong.usergloberank",
+            "eArray": [
+                [
+                    "id=user-globe-rank",
+                    "id"
+                ],
+                [
+                    "xpath=//span/strong",
+                    "xpath:position"
+                ],
+                [
+                    "css=#user-globe-rank",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Current Balance :'])[1]/following::strong[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Check My Balance'])[1]/following::strong[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Debit'])[1]/preceding::strong[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Credit'])[1]/preceding::strong[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "strong.usergloberank",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "strong.usergloberank",
+            "elementDesc": "STRONG user-globe-rank",
+            "indexColumn": "",
+            "tcId": "13"
+        },
+        {
+            "command": "Click",
+            "element": "button.button",
+            "eArray": [
+                [
+                    "xpath=//button",
+                    "xpath:position"
+                ],
+                [
+                    "css=button.btn.btn-success",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Name:'])[1]/preceding::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "button.button",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "button.button",
+            "elementDesc": "BUTTON BUTTON",
+            "indexColumn": "",
+            "tcId": "13"
+        }
+    ],
+    "type": "web",
+    "capabilities": {
+        "remoteUrl": "https://qas.qmetry.com/bank/",
+        "type": "web",
+        "selectBrowser": "chrome",
+        "selectDevice": "",
+        "isRemote": false,
+        "remoteHubUrl": "http://127.0.0.1:4444/wd/hub/",
+        "isDebugMode": "",
+        "details": {
+            "deviceMetrics": {
+                "name": "",
+                "width": "",
+                "height": "",
+                "pixelRatio": "",
+                "userAgent": ""
+            }
+        }
+    },
+    "testDataExample": [],
+    "isTCValid": true,
+    "executionStatus": "NotRun"
+}

@@ -1,0 +1,275 @@
+{
+    "steps": [
+        {
+            "command": "Open",
+            "element": "",
+            "eArray": [],
+            "input": "https://qas.qmetry.com/bank/",
+            "status": "NotRun",
+            "elementKey": "",
+            "elementDesc": "",
+            "indexColumn": ""
+        },
+        {
+            "command": "Clear",
+            "element": "text.txtusername",
+            "eArray": [
+                [
+                    "id=txtUsername",
+                    "id"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtUsername",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='QMetry Bank Login'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "text.txtusername",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "text.txtusername",
+            "elementDesc": "Input for txtUsername",
+            "indexColumn": "",
+            "tcId": "14"
+        },
+        {
+            "command": "Type",
+            "element": "text.txtusername",
+            "eArray": [
+                [
+                    "id=txtUsername",
+                    "id"
+                ],
+                [
+                    "xpath=//input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtUsername",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='QMetry Bank Login'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "text.txtusername",
+                    "key"
+                ]
+            ],
+            "input": "${username}",
+            "status": "NotRun",
+            "elementKey": "text.txtusername",
+            "elementDesc": "Input for txtUsername",
+            "indexColumn": ""
+        },
+        {
+            "command": "Clear",
+            "element": "password.txtpassword",
+            "eArray": [
+                [
+                    "id=txtPassword",
+                    "id"
+                ],
+                [
+                    "xpath=//div[2]/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtPassword",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.txtpassword",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "password.txtpassword",
+            "elementDesc": "txtPassword password",
+            "indexColumn": "",
+            "tcId": "14"
+        },
+        {
+            "command": "Type",
+            "element": "password.txtpassword",
+            "eArray": [
+                [
+                    "id=txtPassword",
+                    "id"
+                ],
+                [
+                    "xpath=//div[2]/input",
+                    "xpath:position"
+                ],
+                [
+                    "css=#txtPassword",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/following::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::input[2]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::input[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "password.txtpassword",
+                    "key"
+                ]
+            ],
+            "input": "${password}",
+            "status": "NotRun",
+            "elementKey": "password.txtpassword",
+            "elementDesc": "txtPassword password",
+            "indexColumn": ""
+        },
+        {
+            "command": "Click",
+            "element": "button.btnlogin",
+            "eArray": [
+                [
+                    "id=btnLogin",
+                    "id"
+                ],
+                [
+                    "xpath=//button",
+                    "xpath:position"
+                ],
+                [
+                    "css=#btnLogin",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/following::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Username'])[1]/following::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "button.btnlogin",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "button.btnlogin",
+            "elementDesc": "BUTTON btnLogin",
+            "indexColumn": "",
+            "tcId": "14"
+        },
+        {
+            "command": "Verify Visible",
+            "element": "button.button",
+            "eArray": [
+                [
+                    "xpath=//button",
+                    "xpath:position"
+                ],
+                [
+                    "css=button.btn.btn-success",
+                    "css"
+                ],
+                [
+                    "xpath=(.//*[normalize-space(text()) and normalize-space(.)='Name:'])[1]/preceding::button[1]",
+                    "xpath:neighbor"
+                ],
+                [
+                    "button.button",
+                    "key"
+                ]
+            ],
+            "input": "",
+            "status": "NotRun",
+            "elementKey": "button.button",
+            "elementDesc": "BUTTON BUTTON",
+            "indexColumn": "",
+            "tcId": "14"
+        }
+    ],
+    "type": "web",
+    "capabilities": {
+        "remoteUrl": "https://qas.qmetry.com/bank/",
+        "type": "web",
+        "selectBrowser": "chrome",
+        "selectDevice": "",
+        "isRemote": false,
+        "remoteHubUrl": "http://127.0.0.1:4444/wd/hub/",
+        "isDebugMode": "",
+        "details": {
+            "deviceMetrics": {
+                "name": "",
+                "width": "",
+                "height": "",
+                "pixelRatio": "",
+                "userAgent": ""
+            }
+        }
+    },
+    "testDataExample": [
+        {
+            "username": "Bob",
+            "password": "Bob"
+        },
+        {
+            "username": "Sarah",
+            "password": "Sarah"
+        }
+    ],
+    "isTCValid": true,
+    "executionStatus": "NotRun"
+}

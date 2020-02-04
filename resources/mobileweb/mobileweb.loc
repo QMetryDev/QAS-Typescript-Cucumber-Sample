@@ -4,3 +4,21 @@ span.span1111_1_1={"locator":"xpath=//div[@id='passwordNext']/span","desc":"Text
 email={"locator":"id=identifierId","desc":"identifierId email"}
 text_1={"locator":"xpath=//div[@id='view_container']/div/div/div[2]/div/div","desc":"Text DIV111"}
 password={"locator":"name=password","desc":"QAS@2019 password"}
+
+
+email.identifierid={"locator":"id=identifierId","desc":"identifierId email"}
+div.div2111={"locator":"xpath=//div[@id='view_container']/div/div/div[2]/div/div/div/form/span/section/div/span/div[3]","desc":"Text DIV2111"}
+span.span1111={"locator":"xpath=//div[@id='identifierNext']/span/span","desc":"Text SPAN1111"}
+password.qas2019={"locator":"name=password","desc":"QAS@2019 password"}
+div.div111={"locator":"xpath=//div[@id='view_container']/div/div/div[2]/div","desc":"Text DIV111"}
+span.span1111_1={"locator":"xpath=//div[@id='passwordNext']/span/span","desc":"Text SPAN1111"}
+text.txtusername={"locator":"id=txtUsername","desc":"Input for txtUsername"}
+password.txtpassword={"locator":"id=txtPassword","desc":"txtPassword password"}
+button.btnlogin={"locator":"id=btnLogin","desc":"BUTTON btnLogin"}
+number.enteramountforcredit={"locator":"xpath=.//*[@placeholder='Enter amount for credit']","desc":"Enter amount for credit number"}
+button.button11={"locator":"xpath=//div[2]/span/button","desc":"BUTTON BUTTON11"}
+strong.usergloberank={"locator":"id=user-globe-rank","desc":"STRONG user-globe-rank"}
+button.button={"locator":"xpath=//button","desc":"BUTTON BUTTON"}
+div.div={"locator":"xpath=//div/div","desc":"Text DIV"}
+number.enteramountforcredit_1={"locator":"xpath=//div[2]/input","desc":"Enter amount for credit number"}
+div.div_1={"locator":"xpath=//div/div/div","desc":"Text DIV"}

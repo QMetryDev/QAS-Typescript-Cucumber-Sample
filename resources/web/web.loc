@@ -5,3 +5,11 @@ span.span1111={"locator":"xpath=//div[@id='identifierNext']/span/span","desc":"T
 password.qas2019={"locator":"name=password","desc":"QAS@2019 password"}
 div.div111={"locator":"xpath=//div[@id='view_container']/div/div/div[2]/div","desc":"Text DIV111"}
 span.span1111_1={"locator":"xpath=//div[@id='passwordNext']/span/span","desc":"Text SPAN1111"}
+text.txtusername={"locator":"id=txtUsername","desc":"Input for txtUsername"}
+password.txtpassword={"locator":"id=txtPassword","desc":"txtPassword password"}
+button.btnlogin={"locator":"id=btnLogin","desc":"BUTTON btnLogin"}
+number.enteramountforcredit={"locator":"xpath=.//*[@placeholder='Enter amount for credit']","desc":"Enter amount for credit number"}
+button.button11={"locator":"xpath=//div[2]/span/button","desc":"BUTTON BUTTON11"}
+strong.usergloberank={"locator":"id=user-globe-rank","desc":"STRONG user-globe-rank"}
+button.button={"locator":"xpath=//button","desc":"BUTTON BUTTON"}
+div.div={"locator":"xpath=//div/div","desc":"Text DIV"}
