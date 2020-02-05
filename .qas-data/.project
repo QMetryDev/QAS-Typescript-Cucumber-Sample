@@ -1,10 +1,10 @@
 {
     "additionalFields": {
         "mobileweb": {
-            "baseurl": "https://www.gmail.com"
+            "baseurl": "https://qas.qmetry.com/bank/"
         },
         "web": {
-            "baseurl": "https://www.gmail.com"
+            "baseurl": "https://qas.qmetry.com/bank/"
         }
     },
     "framework": "cucumber",
