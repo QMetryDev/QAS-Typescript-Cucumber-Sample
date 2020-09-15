@@ -1,4 +1,4 @@
-import * as configurationmanager from "./configurationmanager";
+import * as configurationmanager from "./ConfigurationManager";
 export class LocatorUtils {
   getLocator(locator, ...text) {
     let description: string;

@@ -24,7 +24,8 @@
     "posttest": "npm run uploadresults",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start",
-    "uploadresults": "node out/source/base/ResultsUploader.js"
+    "uploadresults": "node out/source/base/ResultsUploader.js",
+    "updatechrome": "node out/source/base/updatechrome.js"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -37,7 +38,7 @@
     "cucumber": "^4.1.0",
     "cucumber-html-reporter": "^4.0.2",
     "mkdirp": "^0.5.1",
-    "protractor": "^5.4.2",
+    "protractor": "^7.0.0",
     "protractor-cucumber-framework": "^6.1.1",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.0",
