@@ -8,8 +8,8 @@ export class LoginPage {
   public loginbutton: ElementFinder;
 
   constructor() {
-    this.username = element(locatorUtil.getLocator("username.input"));
-    this.password = element(locatorUtil.getLocator("password.input"));
-    this.loginbutton = element(locatorUtil.getLocator("login.form"));
+    this.username = element(locatorUtil.getLocator("username.input").locator);
+    this.password = element(locatorUtil.getLocator("password.input").locator);
+    this.loginbutton = element(locatorUtil.getLocator("login.form").locator);
   }
 }

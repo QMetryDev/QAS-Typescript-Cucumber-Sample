@@ -21,7 +21,7 @@ Run below commands to download required modules.
 ```
 npm install
 npm install --global typescript@latest
-npm install -g protractor
+npm install protractor@latest --save-dev
 npm install -g tsc
 ```
 * All the dependencies from package.json and ambient typings would be installed in node_modules folder.
@@ -34,6 +34,13 @@ npm run webdriver-update
 ```
 npm run build
 ```
+
+* If your machine's chrome browser version is not latest one then kindly execute given command
+
+```
+npm run updatechrome
+```
+
 
 * Now just run the test command which launches the Chrome Browser and runs the scripts.
 ```
