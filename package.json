@@ -20,7 +20,7 @@
   "scripts": {
     "postinstall": "node_modules/.bin/webdriver-manager update",
     "build": "tsc",
-    "test": "tsc -p . && protractor out/config/config.js || true",
+    "test": "tsc -p . && protractor out/config/config.js ",
     "posttest": "npm run uploadresults",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/cucumber": "^4.0.4",
-    "@types/node": "^9.6.12",
+    "@types/node":"7.0.43",
     "@types/selenium-webdriver": "^3.0.8",
     "all-contributors-cli": "^5.2.0",
     "chai": "^4.2.0",
