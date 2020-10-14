@@ -21,4 +21,3 @@ Scenario Outline: VerifyLogin
 Examples:
     |username|password|
     |Bob|Bob|
-    |Sarah|Sarah|
