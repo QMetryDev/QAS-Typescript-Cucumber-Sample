@@ -46,7 +46,10 @@ npm run updatechrome
 ```
 npm test
 ```
-
+* To run project using Tags :
+```
+ npm test -- --cucumberOpts.tags=@tag
+```
 #### Writing Features inside Scenario
 ```
 Feature: To search typescript in google
