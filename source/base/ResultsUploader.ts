@@ -47,8 +47,14 @@ import {
   TEST_CASE_STATUS,
   TEST_CASE_SPRINTID,
   TEST_CASE_FIXVERSIONID,
-	TEST_SUITE_FIELDS,
-	TEST_CASE_FIELDS
+  TEST_SUITE_FIELDS,
+  TEST_CASE_FIELDS,
+  TEST_CASE_DESCRIPTION,
+  TEST_CASE_ASSIGNEE,
+  TEST_CASE_CUSTOMFIELDS,
+  TEST_CYCLE_ASSIGNEE,
+  TEST_CYCLE_CUSTOMFIELDS,
+  TEST_CYCLE_DESCRIPTION
 
 } from "./Utils";
 import { ConfigurationManager } from "./ConfigurationManager";
@@ -59,7 +65,7 @@ export let integrationProperties = ConfigurationManager.getIntegrationBundle();
 function uploadResults(filePath, callback) {
   console.log("<<<<<<<<<<<<<<<<<<<<< Uploading Results >>>>>>>>>>>>>>>>");
   var option_new;
-	var start = new Date().getTime();
+  var start = new Date().getTime();
   if (!ON_PREMISE && INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j") {
     // FOR QTM4J CLOUD
     option_new = {
@@ -94,9 +100,10 @@ function uploadResults(filePath, callback) {
         if (response.body.isSuccess) {
           doCloudCall(filePath, response, callback);
         } else {
-					callback({ success: false,
-						errMessage: response ? response.body.errorMessage : 'Something Went Wrong, Please Check Configuration(URL, Credentials etc...)'
-					});
+          callback({
+            success: false,
+            errMessage: response ? response.body.errorMessage : 'Something Went Wrong, Please Check Configuration(URL, Credentials etc...)'
+          });
         }
       });
     } catch (e) {
@@ -135,65 +142,66 @@ function uploadResults(filePath, callback) {
         if (response && response.body && response.body.trackingId) {
           doCloudCall(filePath, response, callback);
         } else {
-					callback({ success: false,
-						errMessage: response ? response.body.errorMessage : 'Something Went Wrong, Please Check Configuration(URL, Credentials etc...)'
-					});
+          callback({
+            success: false,
+            errMessage: response ? response.body.errorMessage : 'Something Went Wrong, Please Check Configuration(URL, Credentials etc...)'
+          });
         }
       });
     } catch (e) {
       callback({ success: false, errMessage: e });
     }
-	} else if (ON_PREMISE && INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j4x") {
-		// FOR QTM4J SERVER
+  } else if (ON_PREMISE && INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j4x") {
+    // FOR QTM4J SERVER
 
-		let authorization_value = encodeBase64(USERNAME, PASSWORD);
+    let authorization_value = encodeBase64(USERNAME, PASSWORD);
 
-		option_new = {
-			method: 'POST',
-			url: URL,
-			headers: {
-				'Content-Type': 'application/json',
-				apiKey: API_KEY,
-				Authorization: "Basic " + authorization_value
-			},
-			body: {
-				format: 'CUCUMBER'
-			},
-			json: true
-		};
+    option_new = {
+      method: 'POST',
+      url: URL,
+      headers: {
+        'Content-Type': 'application/json',
+        apiKey: API_KEY,
+        Authorization: "Basic " + authorization_value
+      },
+      body: {
+        format: 'CUCUMBER'
+      },
+      json: true
+    };
 
 
 
-		// delete extraFieldMap['testRunName'];
-		option_new = getExtraFieldMap(option_new);
+    // delete extraFieldMap['testRunName'];
+    option_new = getExtraFieldMap(option_new);
 
-		console.log(
-			"Uploading results With:::" +
-			INTEGRATION_TYPE +
-			"::SERVER" +
-			JSON.stringify(option_new)
-		);
-		try {
-			// url will not get for qtm4j cloud
-			request(option_new, function requestTO(error, response, body) {
-				if (response && response.body && response.body.trackingId) {
-					doServerCall(filePath, response, API_KEY, authorization_value, callback);
-				} else {
-					callback({
-						success: false,
-						errMessage: response ? response.body.errorMessage : 'Something Went Wrong, Please Check Configuration(URL, Credentials etc...)'
-					});
-				}
-			});
-		} catch (e) {
-			callback({ success: false, errMessage: e });
-		}
-	}	else {
+    console.log(
+      "Uploading results With:::" +
+      INTEGRATION_TYPE +
+      "::SERVER" +
+      JSON.stringify(option_new)
+    );
+    try {
+      // url will not get for qtm4j cloud
+      request(option_new, function requestTO(error, response, body) {
+        if (response && response.body && response.body.trackingId) {
+          doServerCall(filePath, response, API_KEY, authorization_value, callback);
+        } else {
+          callback({
+            success: false,
+            errMessage: response ? response.body.errorMessage : 'Something Went Wrong, Please Check Configuration(URL, Credentials etc...)'
+          });
+        }
+      });
+    } catch (e) {
+      callback({ success: false, errMessage: e });
+    }
+  } else {
     //FOR QTM4J server and QTM(CLound/Server)
 
     console.log("Uploading file name ::" + filePath);
     if (INTEGRATION_TYPE.toString().toLowerCase() === "qtm") {
-      let newFilePath = filePath.replace('.zip','/json/cucumber_report.json');
+      let newFilePath = filePath.replace('.zip', '/json/cucumber_report.json');
       option_new = {
         method: "POST",
         url: URL,
@@ -277,13 +285,13 @@ export function encodeBase64(username, pwd) {
 }
 
 function getExtraFieldMap(option_new) {
-	if (INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j4x") {
-		nonRequiredRequest4xParam();
-	} else {
-		nonRequiredRequestParam();
-	}
+  if (INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j4x") {
+    nonRequiredRequest4xParam();
+  } else {
+    nonRequiredRequestParam();
+  }
 
-  if (!ON_PREMISE && INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j" ||  INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j4x") {
+  if (!ON_PREMISE && INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j" || INTEGRATION_TYPE.toString().toLowerCase() === "qtm4j4x") {
     Object.keys(extraFieldMap).forEach(function (key) {
       var val = extraFieldMap[key];
       if (val !== "" && val !== undefined && val !== null && val !== 0) {
@@ -304,7 +312,7 @@ function getExtraFieldMap(option_new) {
 
 function doCloudCall(filePath, response, callback) {
   console.log("IN CLOUD > ::: for " + response.body.url);
-  let newFilePath = filePath.replace('.zip','/json/cucumber_report.json');
+  let newFilePath = filePath.replace('.zip', '/json/cucumber_report.json');
 
   var start = new Date().getTime();
   var option_new = {
@@ -342,7 +350,7 @@ function doCloudCall(filePath, response, callback) {
 
 function doServerCall(filePath, response, apiKey, authorization_value, callback) {
   console.log("IN SERVER > ::: for " + response.body.url);
-  let newFilePath = filePath.replace('.zip','/json/cucumber_report.json');
+  let newFilePath = filePath.replace('.zip', '/json/cucumber_report.json');
 
   var start = new Date().getTime();
   var option_new = {
@@ -350,8 +358,8 @@ function doServerCall(filePath, response, apiKey, authorization_value, callback)
     url: response.body.url,
     headers: {
       "Content-Type": "multipart/form-data",
-			'apiKey': apiKey,
-			'Authorization': "Basic " + authorization_value
+      'apiKey': apiKey,
+      'Authorization': "Basic " + authorization_value
     },
     json: false,
     enconding: null,
@@ -414,12 +422,12 @@ function nonRequiredRequestParam() {
   extraFieldMap["buildID"] = BUILD_ID;
   extraFieldMap["testsuiteName"] = TEST_SUITE_NAME;
 
-	extraFieldMap['testcase_fields'] = TEST_CASE_FIELDS;
-	extraFieldMap['testsuite_fields'] = TEST_SUITE_FIELDS;
+  extraFieldMap['testcase_fields'] = TEST_CASE_FIELDS;
+  extraFieldMap['testsuite_fields'] = TEST_SUITE_FIELDS;
 
 
-	extraFieldMap['testcase_fields'] = extraFieldMap['testcase_fields'].replace(/\"\[/g,'[').replace(/\]"/g,']');
-	extraFieldMap['testsuite_fields'] = extraFieldMap['testsuite_fields'].replace(/\"\[/g,'[').replace(/\]"/g,']');
+  extraFieldMap['testcase_fields'] = extraFieldMap['testcase_fields'].replace(/\"\[/g, '[').replace(/\]"/g, ']');
+  extraFieldMap['testsuite_fields'] = extraFieldMap['testsuite_fields'].replace(/\"\[/g, '[').replace(/\]"/g, ']');
 
 
 
@@ -428,39 +436,45 @@ function nonRequiredRequestParam() {
 
 function checkValueIsBankOrNot(val) {
 
-	if (val !== '' && val !== undefined && val !== null && val !== 0) {
-			return val;
-	} else {
-			return '';
-	}
+  if (val !== '' && val !== undefined && val !== null && val !== 0) {
+    return val;
+  } else {
+    return '';
+  }
 
 }
 
 function nonRequiredRequest4xParam() {
 
-	extraFieldMap["testCycleToReuse"] = TEST_CYCLE_TO_REUSE;
-	extraFieldMap["environment"] = ENVIRONMENT;
-	extraFieldMap["build"] = BUILD;
-	extraFieldMap["attachFile"] = ATTACH_FILE.toString();
-	extraFieldMap["fields"] = {
-		'testCycle': {
-			'labels': checkValueIsBankOrNot(TEST_CYCLE_LABELS) !== '' ? TEST_CYCLE_LABELS.split(',') : [],
-			'components': checkValueIsBankOrNot(TEST_CYCLE_COMPONENTS) ? TEST_CYCLE_COMPONENTS.split(',') : [],
-			'priority':  checkValueIsBankOrNot(TEST_CYCLE_PRIORITY),
-			'status': checkValueIsBankOrNot(TEST_CYCLE_STATUS),
-			'sprintId':  checkValueIsBankOrNot(TEST_CYCLE_SPRINTID),
-			'fixVersionId':  checkValueIsBankOrNot(TEST_CYCLE_FIXVERSIONID),
-			'summary':  checkValueIsBankOrNot(TEST_CYCLE_SUMMARY) !== '' ? TEST_CYCLE_SUMMARY : 'Automated Test Cycle'
-		},
-		'testCase': {
-			'labels': checkValueIsBankOrNot(TEST_CASE_LABELS) !== '' ? TEST_CASE_LABELS.split(',') : [],
-			'components': checkValueIsBankOrNot(TEST_CASE_COMPONENTS) !== '' ? TEST_CASE_COMPONENTS.split(',') : [],
-			'priority':  checkValueIsBankOrNot(TEST_CASE_PRIORITY),
-			'status':  checkValueIsBankOrNot(TEST_CASE_STATUS),
-			'sprintId':  checkValueIsBankOrNot(TEST_CASE_SPRINTID),
-			'fixVersionId':  checkValueIsBankOrNot(TEST_CASE_FIXVERSIONID)
-		}
-	};
+  extraFieldMap["testCycleToReuse"] = TEST_CYCLE_TO_REUSE;
+  extraFieldMap["environment"] = ENVIRONMENT;
+  extraFieldMap["build"] = BUILD;
+  extraFieldMap["attachFile"] = ATTACH_FILE.toString();
+  extraFieldMap["fields"] = {
+    'testCycle': {
+      'labels': checkValueIsBankOrNot(TEST_CYCLE_LABELS) !== '' ? TEST_CYCLE_LABELS.split(',') : [],
+      'components': checkValueIsBankOrNot(TEST_CYCLE_COMPONENTS) ? TEST_CYCLE_COMPONENTS.split(',') : [],
+      'priority': checkValueIsBankOrNot(TEST_CYCLE_PRIORITY),
+      'status': checkValueIsBankOrNot(TEST_CYCLE_STATUS),
+      'sprintId': checkValueIsBankOrNot(TEST_CYCLE_SPRINTID),
+      'fixVersionId': checkValueIsBankOrNot(TEST_CYCLE_FIXVERSIONID),
+      'summary': checkValueIsBankOrNot(TEST_CYCLE_SUMMARY) !== '' ? TEST_CYCLE_SUMMARY : 'Automated Test Cycle',
+      'description': checkValueIsBankOrNot(TEST_CYCLE_DESCRIPTION),
+      'assignee': checkValueIsBankOrNot(TEST_CYCLE_ASSIGNEE),
+      ... ((checkValueIsBankOrNot(TEST_CYCLE_CUSTOMFIELDS) !== '') && { 'customFields': JSON.parse(TEST_CYCLE_CUSTOMFIELDS.toString()) })
+    },
+    'testCase': {
+      'labels': checkValueIsBankOrNot(TEST_CASE_LABELS) !== '' ? TEST_CASE_LABELS.split(',') : [],
+      'components': checkValueIsBankOrNot(TEST_CASE_COMPONENTS) !== '' ? TEST_CASE_COMPONENTS.split(',') : [],
+      'priority': checkValueIsBankOrNot(TEST_CASE_PRIORITY),
+      'status': checkValueIsBankOrNot(TEST_CASE_STATUS),
+      'sprintId': checkValueIsBankOrNot(TEST_CASE_SPRINTID),
+      'fixVersionId': checkValueIsBankOrNot(TEST_CASE_FIXVERSIONID),
+      'description': checkValueIsBankOrNot(TEST_CASE_DESCRIPTION),
+      'assignee': checkValueIsBankOrNot(TEST_CASE_ASSIGNEE),
+      ... (checkValueIsBankOrNot(TEST_CASE_CUSTOMFIELDS) !== '' && { 'customFields': JSON.parse(TEST_CASE_CUSTOMFIELDS.toString()) })
+    }
+  };
 
 }
 

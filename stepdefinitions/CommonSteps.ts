@@ -326,3 +326,18 @@ defineStep(/type Enter "(.*?)"$/, async locator => {
 			throw err;
 		});
 });
+defineStep(/close "(.*?)"$/,  async url => {
+    await browser.driver.close();
+});
+defineStep(/switchWindow "(.*?)"$/,  async index => {
+    await browser.driver.getAllWindowHandles().then((windowArray) => {
+         browser.driver.switchTo().window(windowArray[index]);
+    });
+});
+defineStep(/wait for "(.*?)" millisec$/,  async time => {
+	if(time && /^[0-9]*$/mg.test(time.trim())){
+		await browser.driver.sleep(time).then(() => { }).catch(err => {throw err;});
+	}else{
+		throw 'Invalid Input : '+time;
+	}
+});

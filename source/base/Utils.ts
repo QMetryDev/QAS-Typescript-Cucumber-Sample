@@ -20,7 +20,7 @@ export const SPRINT = integrationProperties.get('automation.qmetry.sprint') !== 
 export const PLATFORM = integrationProperties.get('automation.qmetry.platform') !== null ? integrationProperties.get('automation.qmetry.platform') : '';
 export const COMMENT = integrationProperties.get('automation.qmetry.comment') !== null ? integrationProperties.get('automation.qmetry.comment') : '';
 export const TEST_RUN_KEY = integrationProperties.get('automation.qmetry.testrunkey') !== null ? integrationProperties.get('automation.qmetry.testrunkey') : '';
-export const TEST_ASSET_HIERARCHY = integrationProperties.get('automation.qmetry.testassethierarchy') !== null && (integrationProperties.get('automation.qmetry.testassethierarchy')) !==0 ? integrationProperties.get('automation.qmetry.testassethierarchy') : 'TestCase-TestStep';
+export const TEST_ASSET_HIERARCHY = integrationProperties.get('automation.qmetry.testassethierarchy') !== null && (integrationProperties.get('automation.qmetry.testassethierarchy')) !== 0 ? integrationProperties.get('automation.qmetry.testassethierarchy') : 'TestCase-TestStep';
 export const JIRA_FIELS = integrationProperties.get('automation.qmetry.jirafields') !== null ? integrationProperties.get('automation.qmetry.jirafields') : '';
 export const DEBUG = integrationProperties.get('automation.qmetry.debug') !== null ? integrationProperties.get('automation.qmetry.debug') : '';
 export const ATTACH_FILE = integrationProperties.get('automation.qmetry.attachfile') !== null ? integrationProperties.get('automation.qmetry.attachfile') : '';
@@ -49,6 +49,9 @@ export const TEST_CYCLE_STATUS = integrationProperties.get('automation.qmetry.te
 export const TEST_CYCLE_SPRINTID = integrationProperties.get('automation.qmetry.testcycle.sprintId') !== null ? integrationProperties.get('automation.qmetry.testcycle.sprintId') : '';
 export const TEST_CYCLE_FIXVERSIONID = integrationProperties.get('automation.qmetry.testcycle.fixVersionId') !== null ? integrationProperties.get('automation.qmetry.testcycle.fixVersionId') : '';
 export const TEST_CYCLE_SUMMARY = integrationProperties.get('automation.qmetry.testcycle.summary') !== null ? integrationProperties.get('automation.qmetry.testcycle.summary') : '';
+export const TEST_CYCLE_DESCRIPTION = integrationProperties.get('automation.qmetry.testcycle.description') !== null ? integrationProperties.get('automation.qmetry.testcycle.description') : '';
+export const TEST_CYCLE_ASSIGNEE = integrationProperties.get('automation.qmetry.testcycle.assignee') !== null ? integrationProperties.get('automation.qmetry.testcycle.assignee') : '';
+export const TEST_CYCLE_CUSTOMFIELDS = integrationProperties.get('automation.qmetry.testcycle.customFields') !== null ? integrationProperties.get('automation.qmetry.testcycle.customFields') : '';
 
 export const TEST_CASE_LABELS = integrationProperties.get('automation.qmetry.testcase.labels') !== null ? integrationProperties.get('automation.qmetry.testcase.labels') : '';
 export const TEST_CASE_COMPONENTS = integrationProperties.get('automation.qmetry.testcase.components') !== null ? integrationProperties.get('automation.qmetry.testcase.components') : '';
@@ -56,6 +59,9 @@ export const TEST_CASE_PRIORITY = integrationProperties.get('automation.qmetry.t
 export const TEST_CASE_STATUS = integrationProperties.get('automation.qmetry.testcase.status') !== null ? integrationProperties.get('automation.qmetry.testcase.status') : '';
 export const TEST_CASE_SPRINTID = integrationProperties.get('automation.qmetry.testcase.sprintId') !== null ? integrationProperties.get('automation.qmetry.testcase.sprintId') : '';
 export const TEST_CASE_FIXVERSIONID = integrationProperties.get('automation.qmetry.testcase.fixVersionId') !== null ? integrationProperties.get('automation.qmetry.testcase.fixVersionId') : '';
+export const TEST_CASE_DESCRIPTION = integrationProperties.get('automation.qmetry.testcase.description') !== null ? integrationProperties.get('automation.qmetry.testcase.description') : '';
+export const TEST_CASE_ASSIGNEE = integrationProperties.get('automation.qmetry.testcase.assignee') !== null ? integrationProperties.get('automation.qmetry.testcase.assignee') : '';
+export const TEST_CASE_CUSTOMFIELDS = integrationProperties.get('automation.qmetry.testcase.customFields') !== null ? integrationProperties.get('automation.qmetry.testcase.customFields') : '';
 
 
 export let testResultsPath = './test-results/';
