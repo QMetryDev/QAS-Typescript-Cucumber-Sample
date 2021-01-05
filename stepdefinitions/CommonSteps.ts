@@ -341,3 +341,20 @@ defineStep(/wait for "(.*?)" millisec$/,  async time => {
 		throw 'Invalid Input : '+time;
 	}
 });
+defineStep(/maximizeWindow "(.*?)"$/,  async url => {
+    await browser.driver.manage().window().maximize();
+});
+defineStep(/drag "(.*?)" and drop on "(.*?)" perform$/, async (source, target) => {
+	console.log("drag locator >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+(element(locatorUtil.getLocator(target).locator)));
+	await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator),element(locatorUtil.getLocator(target).locator)).mouseUp(element(locatorUtil.getLocator(target).locator)).perform()
+		.then(() => {}).catch(err => {throw err;});
+	// await browser.driver.actions().mouseDown(element(locatorUtil.getLocator(source).locator)).mouseMove(element(locatorUtil.getLocator(target).locator)).mouseUp().perform()
+	// 	.then(() => { })
+	// 	.catch(err => {
+	// 		throw err;
+	// 	});
+});
+defineStep(/offset drag "(.*?)" and drop on "(.*?)" and "(.*?)"$/, async (source, xOffSet , yOffSet) => {
+	await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator), { x: parseInt(xOffSet), y: parseInt(yOffSet) }).mouseUp().perform()
+		.then(() => { }).catch(err => {throw err;});
+});
