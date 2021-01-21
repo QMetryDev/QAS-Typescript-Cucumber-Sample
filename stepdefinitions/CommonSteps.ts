@@ -8,6 +8,51 @@ const expect = chai.expect;
 
 let locatorUtil = new LocatorUtils();
 setDefaultTimeout(60 * 1000);
+function jsScript() {
+	return `function simulateDragDrop(sourceNode, destinationNode) {
+	var EVENT_TYPES = {
+	DRAG_END: 'dragend',
+	DRAG_START: 'dragstart',
+	DROP: 'drop'
+	}
+
+	function createCustomEvent(type) {
+	var event = new CustomEvent("CustomEvent")
+	event.initCustomEvent(type, true, true, null)
+	event.dataTransfer = {
+	data: {
+	},
+	setData: function(type, val) {
+	this.data[type] = val
+	},
+	getData: function(type) {
+	return this.data[type]
+	}
+	}
+	return event
+	}
+
+	function dispatchEvent(node, type, event) {
+	if (node.dispatchEvent) {
+	return node.dispatchEvent(event)
+	}
+	if (node.fireEvent) {
+	return node.fireEvent("on" + type, event)
+	}
+	}
+
+	var event = createCustomEvent(EVENT_TYPES.DRAG_START)
+	dispatchEvent(sourceNode, EVENT_TYPES.DRAG_START, event)
+
+	var dropEvent = createCustomEvent(EVENT_TYPES.DROP)
+	dropEvent.dataTransfer = event.dataTransfer
+	dispatchEvent(destinationNode, EVENT_TYPES.DROP, dropEvent)
+
+	var dragEndEvent = createCustomEvent(EVENT_TYPES.DRAG_END)
+	dragEndEvent.dataTransfer = event.dataTransfer
+	dispatchEvent(sourceNode, EVENT_TYPES.DRAG_END, dragEndEvent)
+	}`;
+}
 
 defineStep(/get "(.*?)"$/, async url => {
 	await browser.get(url);
@@ -345,16 +390,24 @@ defineStep(/maximizeWindow "(.*?)"$/,  async url => {
     await browser.driver.manage().window().maximize();
 });
 defineStep(/drag "(.*?)" and drop on "(.*?)" perform$/, async (source, target) => {
-	console.log("drag locator >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+(element(locatorUtil.getLocator(target).locator)));
-	await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator),element(locatorUtil.getLocator(target).locator)).mouseUp(element(locatorUtil.getLocator(target).locator)).perform()
-		.then(() => {}).catch(err => {throw err;});
-	// await browser.driver.actions().mouseDown(element(locatorUtil.getLocator(source).locator)).mouseMove(element(locatorUtil.getLocator(target).locator)).mouseUp().perform()
-	// 	.then(() => { })
-	// 	.catch(err => {
-	// 		throw err;
-	// 	});
+	// await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator),element(locatorUtil.getLocator(target).locator)).mouseUp(element(locatorUtil.getLocator(target).locator)).perform()
+	// 	.then(() => {}).catch(err => {throw err;});
+	await browser.executeScript(jsScript() + "simulateDragDrop(arguments[0], arguments[1])", element(locatorUtil.getLocator(source).locator),element(locatorUtil.getLocator(target).locator))
+	.then(() => { })
+	.catch(err => {
+		throw err;
+	});
+	await browser.driver.actions().mouseDown(element(locatorUtil.getLocator(source).locator)).mouseMove(element(locatorUtil.getLocator(target).locator)).mouseUp().perform()
+		.then(() => { })
+		.catch(err => {
+			throw err;
+		});
 });
 defineStep(/offset drag "(.*?)" and drop on "(.*?)" and "(.*?)"$/, async (source, xOffSet , yOffSet) => {
 	await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator), { x: parseInt(xOffSet), y: parseInt(yOffSet) }).mouseUp().perform()
 		.then(() => { }).catch(err => {throw err;});
+});
+defineStep(/drag "(.*?)" and drop on value "(.*?)" perform$/, async (source, jsvalue) => {
+	let jsValueScript ="arguments[0].setAttribute('value',"+jsvalue+");if(typeof(arguments[0].onchange) === 'function'){arguments[0].onchange('');}";
+	await browser.executeScript(jsValueScript, element(locatorUtil.getLocator(source).locator)).then(() => { }).catch(err => {throw err;});
 });
