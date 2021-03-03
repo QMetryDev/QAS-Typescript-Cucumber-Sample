@@ -1,26 +1,25 @@
 import { browser, Config } from "protractor";
 import { ConfigurationManager } from "../source/base/ConfigurationManager";
 import { Reporter } from "../support/reporter";
+this.properties = ConfigurationManager.getBundle();
 // import {setDefaultTimeout} from 'cucumber';
-
 const jsonReports = process.cwd() + "/test-results/";
 const yargs = require("yargs").argv;
 const argv = yargs;
 let isDIrectConnectSupported = true;
-this.properties = ConfigurationManager.getBundle();
+let seleniumAddress = 'http://127.0.0.1:4444/wd/hub';
 const platformProperty = this.properties.get("platform");
 let browserProperty = this.properties.get("driver.name");
-if (browserProperty.indexOf("Remote") > 0) {
-  isDIrectConnectSupported = false;
-}
 let browserName = browserProperty
-  .replace(new RegExp("Remote"), "")
-  .replace(new RegExp("Driver"), "");
-
-let caps = this.properties.get(
-  browserName.toLowerCase() + ".additional.capabilities"
-);
+.replace(new RegExp("Remote"), "")
+.replace(new RegExp("Driver"), "");
 let driverCaps = {};
+driverCaps["browserName"] = browserName;
+if (browserProperty.toLowerCase().indexOf("remote") >= 0) {
+	isDIrectConnectSupported = false;
+	seleniumAddress = this.properties.get("remote.server");
+}
+let caps = this.properties.get("remote.additional.capabilities");
 try {
   if (caps !== null && caps !== undefined) {
     driverCaps = JSON.parse(caps);
@@ -34,19 +33,14 @@ try {
     " is not a valid json"
   );
 }
-driverCaps["browserName"] = browserName;
-
-// END
+console.log("driver Capabilities : "+JSON.stringify(driverCaps));
 export const config: Config = {
   directConnect: isDIrectConnectSupported,
-  seleniumAddress: "http://127.0.0.1:4444/wd/hub",
-
+  // seleniumAddress: "http://127.0.0.1:4444/wd/hub",
+	seleniumAddress: seleniumAddress,
   SELENIUM_PROMISE_MANAGER: false,
-
   baseUrl: "https://www.google.com",
-
   capabilities: driverCaps,
-
   framework: "custom",
   allScriptsTimeout: 60000,
   frameworkPath: require.resolve("protractor-cucumber-framework"),
