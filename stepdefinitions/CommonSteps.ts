@@ -131,6 +131,9 @@ defineStep(/^comment "(.*?)"$/, async value => {
 	console.log("Comment ::: " + processValue(value));
 });
 defineStep(/Verify title is "(.*?)"$/, async expectedTitle => {
+	if (expectedTitle.startsWith("${")) {
+		expectedTitle = properties.get(expectedTitle.substring(2, expectedTitle.length - 1));
+	}
 	await expect(browser.getTitle()).to.eventually.equal(expectedTitle);
 
 	// await browser
@@ -315,6 +318,9 @@ defineStep(/verify "(.*?)" text is not "(.*?)"$/, (locator, expectedText, callba
 });
 
 defineStep(/verify link with text "(.*?)" is present$/, (link, callback) => {
+	if (link.startsWith("${")) {
+		link = properties.get(link.substring(2, link.length - 1));
+	}
 	let elmnt = element(by.linkText(link));
 	expect(elmnt.isPresent()).to.eventually.equal(true).and.notify(callback);
 	// ensureElementIsPresent(elmnt).then(() => {
@@ -324,7 +330,9 @@ defineStep(/verify link with text "(.*?)" is present$/, (link, callback) => {
 });
 
 defineStep(/verify link with partial text "(.*?)" is present$/, (link, callback) => {
-
+	if (link.startsWith("${")) {
+		link = properties.get(link.substring(2, link.length - 1));
+	}
 	let elmnt = element(by.partialLinkText(link));
 	expect(elmnt.isPresent()).to.eventually.equal(true).and.notify(callback);
 	// ensureElementIsPresent(elmnt).then(() => {
@@ -371,43 +379,168 @@ defineStep(/type Enter "(.*?)"$/, async locator => {
 			throw err;
 		});
 });
-defineStep(/close "(.*?)"$/,  async url => {
-    await browser.driver.close();
+defineStep(/close "(.*?)"$/, async url => {
+	await browser.driver.close();
 });
-defineStep(/switchWindow "(.*?)"$/,  async index => {
-    await browser.driver.getAllWindowHandles().then((windowArray) => {
-         browser.driver.switchTo().window(windowArray[index]);
-    });
+defineStep(/switchWindow "(.*?)"$/, async index => {
+	await browser.driver.getAllWindowHandles().then((windowArray) => {
+		browser.driver.switchTo().window(windowArray[index]);
+	});
 });
-defineStep(/wait for "(.*?)" millisec$/,  async time => {
-	if(time && /^[0-9]*$/mg.test(time.trim())){
-		await browser.driver.sleep(time).then(() => { }).catch(err => {throw err;});
-	}else{
-		throw 'Invalid Input : '+time;
+defineStep(/wait for "(.*?)" millisec$/, async time => {
+	if (time && /^[0-9]*$/mg.test(time.trim())) {
+		await browser.driver.sleep(time).then(() => { }).catch(err => { throw err; });
+	} else {
+		throw 'Invalid Input : ' + time;
 	}
 });
-defineStep(/maximizeWindow "(.*?)"$/,  async url => {
-    await browser.driver.manage().window().maximize();
+defineStep(/maximizeWindow "(.*?)"$/, async url => {
+	await browser.driver.manage().window().maximize();
 });
 defineStep(/drag "(.*?)" and drop on "(.*?)" perform$/, async (source, target) => {
 	// await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator),element(locatorUtil.getLocator(target).locator)).mouseUp(element(locatorUtil.getLocator(target).locator)).perform()
 	// 	.then(() => {}).catch(err => {throw err;});
-	await browser.executeScript(jsScript() + "simulateDragDrop(arguments[0], arguments[1])", element(locatorUtil.getLocator(source).locator),element(locatorUtil.getLocator(target).locator))
-	.then(() => { })
-	.catch(err => {
-		throw err;
-	});
+	await browser.executeScript(jsScript() + "simulateDragDrop(arguments[0], arguments[1])", element(locatorUtil.getLocator(source).locator), element(locatorUtil.getLocator(target).locator))
+		.then(() => { })
+		.catch(err => {
+			throw err;
+		});
 	await browser.driver.actions().mouseDown(element(locatorUtil.getLocator(source).locator)).mouseMove(element(locatorUtil.getLocator(target).locator)).mouseUp().perform()
 		.then(() => { })
 		.catch(err => {
 			throw err;
 		});
 });
-defineStep(/offset drag "(.*?)" and drop on "(.*?)" and "(.*?)"$/, async (source, xOffSet , yOffSet) => {
+defineStep(/offset drag "(.*?)" and drop on "(.*?)" and "(.*?)"$/, async (source, xOffSet, yOffSet) => {
 	await browser.actions().dragAndDrop(element(locatorUtil.getLocator(source).locator), { x: parseInt(xOffSet), y: parseInt(yOffSet) }).mouseUp().perform()
-		.then(() => { }).catch(err => {throw err;});
+		.then(() => { }).catch(err => { throw err; });
 });
 defineStep(/drag "(.*?)" and drop on value "(.*?)" perform$/, async (source, jsvalue) => {
-	let jsValueScript ="arguments[0].setAttribute('value',"+jsvalue+");if(typeof(arguments[0].onchange) === 'function'){arguments[0].onchange('');}";
-	await browser.executeScript(jsValueScript, element(locatorUtil.getLocator(source).locator)).then(() => { }).catch(err => {throw err;});
+	let jsValueScript = "arguments[0].setAttribute('value'," + jsvalue + ");if(typeof(arguments[0].onchange) === 'function'){arguments[0].onchange('');}";
+	await browser.executeScript(jsValueScript, element(locatorUtil.getLocator(source).locator)).then(() => { }).catch(err => { throw err; });
+});
+defineStep(/waitForAlert "(.*?)" millisec$/, async time => {
+	if (time && /^[0-9]*$/mg.test(time.trim())) {
+		var timeout = +time.trim();
+		await browser.driver.wait(protractor.until.alertIsPresent(), timeout).then(function () {
+		}).catch(err => {
+		});
+	} else {
+		throw 'Invalid Input : ' + time;
+	}
+});
+defineStep(/dismissAlert "(.*?)"$/, async time => {
+	await browser.driver.switchTo().alert().dismiss();
+});
+defineStep(/acceptAlert "(.*?)"$/, async time => {
+	await browser.driver.switchTo().alert().accept();
+});
+defineStep(/getAlertText "(.*?)"$/, async time => {
+	await browser.driver.switchTo().alert().getText();
+});
+defineStep(/setAlertText "(.*?)"$/, async text => {
+	await browser.driver.switchTo().alert().sendKeys(text);
+});
+
+defineStep(/verifyAlertNotPresent "(.*?)" millisec$/, async time => {
+	if (time && /^[0-9]*$/mg.test(time.trim())) {
+		var timeout = +time.trim();
+		return new Promise((resolve, reject) => {
+			browser.driver.wait(protractor.until.alertIsPresent(), timeout)
+				.then(isVisible => {
+					if (isVisible) {
+						reject(new Error("Alert is present"));
+					}
+					else {
+						chai.assert(true, "Alert is not present");
+						resolve();
+					}
+				})
+				.catch(err => {
+					chai.assert(true, "Alert is not present");
+					resolve();
+				});
+
+		});
+	}
+});
+
+defineStep(/verifyAlertPresent "(.*?)" millisec$/, async time => {
+	if (time && /^[0-9]*$/mg.test(time.trim())) {
+		var timeout = +time.trim();
+		await browser.driver.wait(protractor.until.alertIsPresent(), timeout).then(function () {
+		}).catch(err => {
+			chai.assert(false, "Alert is not present");
+		});;
+	} else {
+		chai.assert(false, "Alert is not present");
+	}
+});
+defineStep(/executeJavaScript "(.*?)"$/, async (jsScriptInput) => {
+	await browser.executeScript(jsScriptInput).then(() => { }).catch(err => { throw err; });
+});
+defineStep(/executeAsyncJavaScript "(.*?)"$/, async (jsScriptInput) => {
+	await browser.executeAsyncScript(jsScriptInput).then(() => { }).catch(err => { throw err; });
+});
+defineStep(/store value from "(.*?)" into "(.*?)"$/, async (locator, varKey) => {
+	// properties.set("storeKey","storeVal");	properties.get("storeKey"); //import {config} from '../config/config';config[storeVar];
+	properties.set(varKey, await element(locatorUtil.getLocator(locator).locator).getAttribute('value'))
+});
+defineStep(/store text from "(.*?)" into "(.*?)"$/, async (locator, varKey) => {
+	properties.set(varKey, await element(locatorUtil.getLocator(locator).locator).getText())
+});
+defineStep(/store title into "(.*?)"$/, async (varKey) => {
+	properties.set(varKey, await browser.driver.getTitle())
+});
+defineStep(/verify "(.*?)" is selected$/, (locator, callback) => {
+	element(locatorUtil.getLocator(locator).locator)
+		.isPresent()
+		.then(isPresent => {
+			if (isPresent) {
+				element(locatorUtil.getLocator(locator).locator)
+					.isDisplayed()
+					.then(function (isVisible) {
+						if (isVisible) {
+							chai.assert(true, "Element is selected");
+							callback();
+						} else {
+							chai.assert(false, "Element is not selected");
+							callback(new Error("Element is  not selected"));
+						}
+					})
+					.catch(err => {
+						throw err;
+					});
+			}
+		})
+		.catch((err) => {
+			chai.assert(false, "Element is not present");
+			throw err;
+		});
+});
+
+defineStep(/verify "(.*?)" is not selected$/, (locator, callback) => {
+	let elmnt = element(locatorUtil.getLocator(locator).locator);
+	ensureElementIsPresent(elmnt).then(() => {
+		try {
+			element(locatorUtil.getLocator(locator).locator)
+				.isDisplayed()
+				.then(isVisible => {
+					if (isVisible) {
+						chai.assert(false, "Element is selected");
+						callback(new Error("Element is selected"));
+					} else {
+						chai.assert(true, "Element is not selected");
+						callback();
+					}
+				})
+				.catch(err => {
+					callback(err);
+				});
+		} catch (error) {
+			callback(error);
+		}
+	}).catch((err) => {
+		callback(err);
+	});
 });
