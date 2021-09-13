@@ -435,8 +435,8 @@ defineStep(/dismissAlert "(.*?)"$/, async time => {
 defineStep(/acceptAlert "(.*?)"$/, async time => {
 	await browser.driver.switchTo().alert().accept();
 });
-defineStep(/getAlertText "(.*?)"$/, async time => {
-	await browser.driver.switchTo().alert().getText();
+defineStep(/getAlertText "(.*?)"$/, async (input) => {
+	await properties.set(input, await browser.driver.switchTo().alert().getText());
 });
 defineStep(/setAlertText "(.*?)"$/, async text => {
 	await browser.driver.switchTo().alert().sendKeys(text);
@@ -543,4 +543,17 @@ defineStep(/verify "(.*?)" is not selected$/, (locator, callback) => {
 	}).catch((err) => {
 		callback(err);
 	});
+});
+
+defineStep(/sendEncryptedKeys "(.*?)" into "(.*?)"$/, async (text, locator) => {
+	text = Buffer.from(text, "base64").toString("ascii");
+	if (text.startsWith("${")) {
+		text = properties.get(text.substring(2, text.length - 1));
+	}
+	await element(locatorUtil.getLocator(locator).locator)
+		.sendKeys(text)
+		.then(() => { })
+		.catch(err => {
+			throw err;
+		});
 });
